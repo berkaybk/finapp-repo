@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Thlq74xvnz1JDMZNjzCaaGArviz6w7KRmWboZr3FTgk=",
+  "Source": "FinApp.API",
+  "BasePath": "_content/FinApp.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
