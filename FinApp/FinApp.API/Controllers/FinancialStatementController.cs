@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FinApp.API.CustomActionFilter;
 using FinApp.API.Models.Domain;
 using FinApp.API.Models.DTO;
 using FinApp.API.Repositories;
@@ -28,7 +29,6 @@ namespace FinApp.API.Controllers
 
         [HttpGet]
         [Route("{id:Guid}")]
-        //[Authorize(Roles = "Reader")]
         public async Task<IActionResult> GetById([FromRoute] Guid id) {
             // Get FinancialStatement From Database
             var FinancialStatementDomain = await repository.GetByIdAsync(id);
@@ -42,8 +42,7 @@ namespace FinApp.API.Controllers
         }
 
         [HttpPost]
-        //[ValidateModel]
-        //[Authorize(Roles = "Writer")]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] AddFinancialStatementRequestDto addFinancialStatementRequestDto) {
             // Map or Convert DTO to Domain Model
             var FinancialStatementDomainModel = mapper.Map<FinancialStatement>(addFinancialStatementRequestDto);
@@ -59,8 +58,7 @@ namespace FinApp.API.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-        //[ValidateModel]
-        //[Authorize(Roles = "Writer")]
+        [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateFinancialStatementRequestDto updateFinancialStatementRequestDto) {
 
             // Map DTO to Domain Model
@@ -78,7 +76,6 @@ namespace FinApp.API.Controllers
 
         [HttpDelete]
         [Route("{id:Guid}")]
-        //[Authorize(Roles = "Writer,Reader")]
         public async Task<IActionResult> Delete([FromRoute] Guid id) {
             var FinancialStatementDomainModel = await repository.DeleteAsync(id);
 
