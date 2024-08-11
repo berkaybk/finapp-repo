@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinApp.API", "FinApp.API\FinApp.API.csproj", "{4C053BD9-84CD-46C6-B3F1-5AA176F02B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinApp.UI", "FinApp.UI\FinApp.UI.csproj", "{4441DDD4-1DAE-46D5-8EF0-4E1A0504B339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4C053BD9-84CD-46C6-B3F1-5AA176F02B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C053BD9-84CD-46C6-B3F1-5AA176F02B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C053BD9-84CD-46C6-B3F1-5AA176F02B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4441DDD4-1DAE-46D5-8EF0-4E1A0504B339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4441DDD4-1DAE-46D5-8EF0-4E1A0504B339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4441DDD4-1DAE-46D5-8EF0-4E1A0504B339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4441DDD4-1DAE-46D5-8EF0-4E1A0504B339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

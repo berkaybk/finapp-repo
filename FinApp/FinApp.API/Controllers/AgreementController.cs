@@ -3,10 +3,12 @@ using FinApp.API.CustomActionFilter;
 using FinApp.API.Models.Domain;
 using FinApp.API.Models.DTO;
 using FinApp.API.Repositories;
+using FinApp.API.Repositories.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FinApp.API.Controllers {
+namespace FinApp.API.Controllers
+{
 
     [Route("api/[controller]")]
     [ApiController]

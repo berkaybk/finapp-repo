@@ -1,6 +1,7 @@
 ﻿
 using FinApp.API.Data;
 using FinApp.API.Models.Domain;
+using FinApp.API.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinApp.API.Repositories

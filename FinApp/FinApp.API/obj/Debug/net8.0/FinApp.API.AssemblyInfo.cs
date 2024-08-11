@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FinApp.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7675cec0f48afe4f00c9fa6740f634781b45b50b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b60396a688567b4e7b5145f1be24ccffedd83204")]
 [assembly: System.Reflection.AssemblyProductAttribute("FinApp.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FinApp.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
