@@ -20,5 +20,12 @@ namespace FinApp.API.Models.DTO {
         /// </summary>
         [Required]
         public string Phone { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime? LastUpdateDate { get; set; }
+        [Required]
+        [MinLength(3, ErrorMessage = "Minumum length is 2 charecters.")]
+        public string? LastUpdateUserName { get; set; }
+        public int RecordStatus { get; set; }
     }
 }

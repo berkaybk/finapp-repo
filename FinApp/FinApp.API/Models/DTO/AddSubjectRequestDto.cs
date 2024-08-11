@@ -11,5 +11,11 @@ namespace FinApp.API.Models.DTO {
         public string? Description { get; set; }
         [Required]
         public decimal Cost { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime CreateDate { get; set; }
+        [Required]
+        [MinLength(3, ErrorMessage = "Minumum length is 2 characters.")]
+        public string CreateUserName { get; set; }
     }
 }

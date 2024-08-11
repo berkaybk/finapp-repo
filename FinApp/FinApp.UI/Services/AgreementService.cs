@@ -14,7 +14,7 @@ namespace FinApp.UI.Services {
         }
 
         public async Task<AgreementDto?> CreateAsync(AgreementDto agreement) {
-            var response = await httpClientService.PostAsync<AgreementDto, AgreementDto>($"{serviceUrl}/agreement/{agreement.Id}", agreement);
+            var response = await httpClientService.PostAsync<AgreementDto, AgreementDto>($"{serviceUrl}/agreement", agreement);
             return response;
         }
 

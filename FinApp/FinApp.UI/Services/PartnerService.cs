@@ -14,7 +14,7 @@ namespace FinApp.UI.Services {
         }
 
         public async Task<PartnerDto?> CreateAsync(PartnerDto partnerDto) {
-            var response = await httpClientService.PostAsync<PartnerDto, PartnerDto>($"{serviceUrl}/partner/{partnerDto.Id}", partnerDto);
+            var response = await httpClientService.PostAsync<PartnerDto, PartnerDto>($"{serviceUrl}/partner", partnerDto);
             return response;
         }
 

@@ -1,9 +1,10 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 using System.Text;
+using FinApp.UI.Services.Interfaces;
 
 namespace FinApp.UI.Services {
-    public class HttpClientService {
+    public class HttpClientService : IHttpClientService {
 
         private readonly IHttpClientFactory httpClientFactory;
         private readonly ILogger<AgreementService> logger;

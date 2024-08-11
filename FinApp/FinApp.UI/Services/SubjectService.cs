@@ -14,7 +14,7 @@ namespace FinApp.UI.Services {
         }
 
         public async Task<SubjectDto?> CreateAsync(SubjectDto subject) {
-            var response = await httpClientService.PostAsync<SubjectDto, SubjectDto>($"{serviceUrl}/subject/{subject.Id}", subject);
+            var response = await httpClientService.PostAsync<SubjectDto, SubjectDto>($"{serviceUrl}/subject", subject);
             return response;
         }
 

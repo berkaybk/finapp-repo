@@ -20,5 +20,12 @@ namespace FinApp.API.Models.DTO {
         [MinLength(3, ErrorMessage = "Minumum length is 2 charecters.")]
         [MaxLength(100, ErrorMessage = "Maximum length is 50 charecters.")]
         public string Keywords { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime? LastUpdateDate { get; set; }
+        [Required]
+        [MinLength(3, ErrorMessage = "Minumum length is 2 charecters.")]
+        public string? LastUpdateUserName { get; set; }
+        public int RecordStatus { get; set; }
     }
 }
