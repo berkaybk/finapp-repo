@@ -12,6 +12,7 @@ namespace FinApp.API.Data {
         public DbSet<Subject> Subjects { get; set; }
         public DbSet<RiskAnalysis> RiskAnalyses { get; set; }
         public DbSet<FinancialStatement> FinancialStatements { get; set; }
+        public DbSet<RiskLevel> RiskLevels { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);

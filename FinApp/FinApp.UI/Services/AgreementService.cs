@@ -37,5 +37,10 @@ namespace FinApp.UI.Services {
             var response = await httpClientService.PutAsync<AgreementDto, AgreementDto>($"{serviceUrl}/agreement/{agreement.Id}", agreement);
             return response;
         }
+
+        public async Task<List<RiskLevelDto>> GetRiskLevels() {
+            var response = await httpClientService.GetAsync<List<RiskLevelDto>>($"{serviceUrl}/agreement/risklevels");
+            return response ?? [];
+        }
     }
 }

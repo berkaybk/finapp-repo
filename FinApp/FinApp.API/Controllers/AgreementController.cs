@@ -87,5 +87,17 @@ namespace FinApp.API.Controllers
 
             return Ok(mapper.Map<AgreementDto>(agreementDomainModel));
         }
+
+        [HttpGet]
+        [Route("risklevels")]
+        public async Task<IActionResult> RiskLevels() {
+            var riskLevels = await repository.GetRiskLevels();
+
+            if (riskLevels == null) {
+                return NotFound();
+            }
+
+            return Ok(mapper.Map<List<RiskLevelDto>>(riskLevels));
+        }
     }
 }

@@ -46,6 +46,11 @@ namespace FinApp.API.Repositories
             return await dbContext.Agreements.FirstOrDefaultAsync(x => x.Id == id);
         }
 
+        public async Task<List<RiskLevel>> GetRiskLevels() {
+            var riskLevels = await dbContext.RiskLevels.ToListAsync();
+            return riskLevels ?? [];
+        }
+
         public async Task<Agreement?> UpdateAsync(Guid id, Agreement agreement)
         {
             var agreementOnDb = await dbContext.Agreements.FirstOrDefaultAsync(x => x.Id == id);
@@ -58,6 +63,9 @@ namespace FinApp.API.Repositories
                 agreementOnDb.Amount = agreement.Amount;
                 agreementOnDb.StartDate = agreement.StartDate;
                 agreementOnDb.EndDate = agreement.EndDate;
+                agreementOnDb.RecordStatus = agreement.RecordStatus;
+                agreementOnDb.LastUpdateDate = agreement.LastUpdateDate;
+                agreementOnDb.LastUpdateUserName = agreement.LastUpdateUserName;
 
                 await dbContext.SaveChangesAsync();
             }

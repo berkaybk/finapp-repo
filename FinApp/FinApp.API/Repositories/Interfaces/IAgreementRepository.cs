@@ -12,5 +12,7 @@ namespace FinApp.API.Repositories.Interfaces {
         Task<Agreement?> UpdateAsync(Guid id, Agreement agreement);
 
         Task<Agreement?> DeleteAsync(Guid id);
+
+        Task<List<RiskLevel>> GetRiskLevels();
     }
 }

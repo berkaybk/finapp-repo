@@ -4,15 +4,18 @@ using FinApp.UI.Services;
 using FinApp.UI.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Drawing.Drawing2D;
 using System.Net.Http;
 
 namespace FinApp.UI.Controllers {
     public class PartnersController : Controller {
         private readonly IBaseService<PartnerDto> partnerService;
+        private readonly ILogger<PartnersController> logger;
 
-        public PartnersController(IBaseService<PartnerDto> partnerService) {
+        public PartnersController(IBaseService<PartnerDto> partnerService, ILogger<PartnersController> logger) {
             this.partnerService = partnerService;
+            this.logger = logger;
         }
         // GET: PartnersController
         public async Task<IActionResult> Index() {
@@ -36,21 +39,26 @@ namespace FinApp.UI.Controllers {
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(AddPartnerViewModel model) {
             try {
-                var partnerDto = new PartnerDto {
-                    Email = model.Email,
-                    Name = model.Name,
-                    Phone = model.Phone,
-                    CreateDate = DateTime.Now,
-                    CreateUserName = "Test" //TODO build login system for this
-                };
+                if (ModelState.IsValid) {
+                    var partnerDto = new PartnerDto {
+                        Email = model.Email,
+                        Name = model.Name,
+                        Phone = model.Phone,
+                        CreateDate = DateTime.Now,
+                        CreateUserName = "Test" //TODO build login system for this
+                    };
 
-                var partner = await partnerService.CreateAsync(partnerDto);
+                    var partner = await partnerService.CreateAsync(partnerDto);
 
-                return RedirectToAction(nameof(Index));
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch {
-                return View();
+            catch (Exception ex) {
+                var errorId = Guid.NewGuid();
+                ModelState.AddModelError(errorId.ToString(), "An error occured");
+                logger.LogError(errorId.ToString(), ex);
             }
+            return View(model);
         }
 
         // GET: PartnersController/Edit/5
@@ -76,25 +84,29 @@ namespace FinApp.UI.Controllers {
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(UpdatePartnerViewModel model) {
             try {
-                var partnerDto = new PartnerDto {
-                    Id = model.Id,
-                    Name = model.Name,
-                    Email = model.Email,
-                    Phone = model.Phone,
-                    LastUpdateDate = DateTime.Now,
-                    LastUpdateUserName = "Test" //TODO build login system for this
-                };
-                var respose = await partnerService.UpdateAsync(partnerDto);
+                if (ModelState.IsValid) {
+                    var partnerDto = new PartnerDto {
+                        Id = model.Id,
+                        Name = model.Name,
+                        Email = model.Email,
+                        Phone = model.Phone,
+                        LastUpdateDate = DateTime.Now,
+                        LastUpdateUserName = "Test" //TODO build login system for this
+                    };
+                    var respose = await partnerService.UpdateAsync(partnerDto);
 
-                if (respose is not null) {
-                    return RedirectToAction("Index", "Partners");
+                    if (respose is not null) {
+                        return RedirectToAction("Index", "Partners");
+                    }
                 }
-
-                return View();
+                return View(model);
             }
-            catch {
-                return View();
+            catch (Exception ex) {
+                var errorId = Guid.NewGuid();
+                ModelState.AddModelError(errorId.ToString(), "An error occured");
+                logger.LogError(errorId.ToString(), ex);
             }
+            return View(model);
         }
 
         // GET: PartnersController/Delete/5

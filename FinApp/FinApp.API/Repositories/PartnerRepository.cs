@@ -55,6 +55,9 @@ namespace FinApp.API.Repositories
                 partnerOnDb.Name = partner.Name;
                 partnerOnDb.Email = partner.Email;
                 partnerOnDb.Phone = partner.Phone;
+                partnerOnDb.LastUpdateDate = partner.LastUpdateDate;
+                partnerOnDb.LastUpdateUserName = partner.LastUpdateUserName;
+                partnerOnDb.RecordStatus = partner.RecordStatus;
 
                 await dbContext.SaveChangesAsync();
             }

@@ -33,11 +33,28 @@
         </form>
     </div>
 </div>
-
+<br />
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-secondary" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+    $(document).ready(function() {
+            $("#Phone").on("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    $("form").validate({
+        rules: {
+            Phone: {
+                required: true,
+                minlength: 11,
+                maxlength: 11,
+                number: true
+                }
+            }
+        });
+    });
+    </script>
 }

@@ -55,6 +55,9 @@ namespace FinApp.API.Repositories
                 financialStatementOnDb.Revenue = financialStatement.Revenue;
                 financialStatementOnDb.Expenses = financialStatement.Expenses;
                 financialStatementOnDb.NetIncome = financialStatement.NetIncome;
+                financialStatementOnDb.LastUpdateDate = financialStatement.LastUpdateDate;
+                financialStatementOnDb.LastUpdateUserName = financialStatement.LastUpdateUserName;
+                financialStatementOnDb.RecordStatus = financialStatement.RecordStatus;
 
                 await dbContext.SaveChangesAsync();
             }

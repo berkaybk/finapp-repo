@@ -6,10 +6,10 @@
 
 <h1>Partners</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
+<p class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table  table-bordered">
     <thead>
         <tr>
             <th>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.Id)
             </td> *@
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-secondary"}) 
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-secondary" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-secondary" })
             </td>
         </tr>
 }

@@ -54,6 +54,9 @@ namespace FinApp.API.Repositories
                 riskAnalysisOnDb.AgreementId = riskAnalysis.AgreementId;
                 riskAnalysisOnDb.RiskScore = riskAnalysis.RiskScore;
                 riskAnalysisOnDb.Comments = riskAnalysis.Comments;
+                riskAnalysisOnDb.LastUpdateDate = riskAnalysis.LastUpdateDate;
+                riskAnalysisOnDb.LastUpdateUserName = riskAnalysis.LastUpdateUserName;
+                riskAnalysisOnDb.RecordStatus = riskAnalysis.RecordStatus;
 
                 await dbContext.SaveChangesAsync();
             }
